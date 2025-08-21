@@ -13,3 +13,7 @@ FLUSH PRIVILEGES;
 SHOW VARIABLES LIKE 'validate_password%';
 
 SELECT VALIDATE_PASSWORD_STRENGTH('Taskspass@123');
+
+#######
+
+USE tasksdb;
