@@ -27,25 +27,25 @@ public class TaskController {
         // Alternativa caso queira retornar para uma rota específica de listagem por id da tarefa
         // return ResponseEntity.created(URI.create("/api/tasks/" + taskCreated.getId())).body(taskCreated);
 
-        return ResponseEntity.status(201).body(taskCreated);
+        return ResponseEntity.status(HttpStatus.CREATED.value()).body(taskCreated);
     }
 
     // Buscar todos
     @GetMapping
     public ResponseEntity<List<TaskResponse>> findAll() {
-        return ResponseEntity.ok(taskService.findAll());
+        return ResponseEntity.ok().body(taskService.findAll());
     }
 
     // Buscar por id
     @GetMapping("/{id}")
     public ResponseEntity<TaskResponse> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(taskService.findById(id));
+        return ResponseEntity.ok().body(taskService.findById(id));
     }
 
     // Atualizar
     @PutMapping("/{id}")
     public ResponseEntity<TaskResponse> update(@PathVariable Long id, @Valid @RequestBody TaskRequest body) {
-        return ResponseEntity.ok(taskService.update(id, body));
+        return ResponseEntity.ok().body(taskService.update(id, body));
     }
 
     // Deletar
